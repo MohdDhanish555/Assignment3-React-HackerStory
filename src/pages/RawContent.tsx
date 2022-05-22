@@ -8,8 +8,13 @@ const RawContent = () => {
     
   return (
     <>
-      <Box position="fixed" right="20px" top="95px">
+      <Box display="flex" justifyContent="space-between">
+      <pre>{newStory}</pre>;
         <Button
+          sx={{
+            alignSelf: "flex-start",
+            margin : "1rem"
+        }}
           variant="outlined"
           data-testid="btn-Raw"
           onClick={() => navigate(-1)}
@@ -17,7 +22,6 @@ const RawContent = () => {
           Back
         </Button>
       </Box>
-      <pre>{newStory}</pre>;
     </>
   );
 };
