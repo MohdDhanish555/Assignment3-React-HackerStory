@@ -7,7 +7,6 @@ import { useTheme } from "@mui/material";
 
 const Home = () => {
   const [open, setOpen] = useState(true);
-  const theme = useTheme()
     
   // HANDLING BACKDROP
   function handleButton1() {

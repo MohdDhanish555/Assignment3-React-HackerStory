@@ -4,7 +4,6 @@ import { useLocation, useNavigate } from "react-router-dom";
 const RawContent = () => {
   const { state }: any = useLocation();
   const newStory = JSON.stringify(state?.story, null, 4);
-    const theme = useTheme();
     const navigate = useNavigate();
     
   return (

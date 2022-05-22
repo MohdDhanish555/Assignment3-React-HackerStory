@@ -43,7 +43,7 @@ const List = ({ stories, setStories, lastHitElement }: any) => {
   function handleTitleClick(itemID: number) {
     stories?.map((story: any) => {
       if (story.objectID === itemID)
-        navigate("/rawContent", { state : { story } });
+        return navigate("/rawContent", { state : { story } });
     });
   }
 

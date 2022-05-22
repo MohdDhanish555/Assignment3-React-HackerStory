@@ -47,7 +47,7 @@ const VariantOne = () => {
         <h1>Error</h1>
       ) : (
         <Box display="flex" flexDirection="column" alignItems="center">
-          <Pagination
+            <Pagination
             variant="outlined"
             color="primary"
             count={totalPageCount}

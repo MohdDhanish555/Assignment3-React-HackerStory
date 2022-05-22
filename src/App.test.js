@@ -8,21 +8,16 @@ import RawContent from "./pages/RawContent";
 import VariantOne from "./pages/VariantOne";
 import VariantTwo from "./pages/VariantTwo";
 
+
 const mockedUsedNavigate = jest.fn();
-// const state = story : {
-//   title: "Learn React",
-//   url: "https://eprint.iacr.org/2021/1022",
-//   created_at: "2011-12-12",
-//   author: "grey-area",
-//   points: 1107,
-//   num_comments: 12,
-//   objectID: 1,
-// }}
-  
+
 jest.mock("react-router-dom", () => ({
   ...jest.requireActual("react-router-dom"),
   useNavigate: () => mockedUsedNavigate,
 }));
+
+
+
 
 describe("SNAPSHOT testing", () => {
   test("", () => {
@@ -108,6 +103,7 @@ describe("COMPONENTS testing", () => {
       </BrowserRouter>,
       { wrapper }
     );
+    
   });
 
   test("VARIANT TWO Rendering...", () => {
