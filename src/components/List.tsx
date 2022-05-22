@@ -32,13 +32,13 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-
-
 const List = ({ stories, setStories, lastHitElement }: any) => {
   const theme = useTheme();
 
   function handleDeleteClick(itemID: number) {
-    setStories(stories?.filter((story: StoryType) => story.objectID !== itemID));
+    setStories(
+      stories?.filter((story: StoryType) => story.objectID !== itemID)
+    );
   }
 
   const navigate = useNavigate();
@@ -47,6 +47,7 @@ const List = ({ stories, setStories, lastHitElement }: any) => {
     return stories?.map((story: StoryType) => {
       if (story.objectID === itemID)
         return navigate("/rawContent", { state: { story } });
+      else return null;
     });
   }
 
