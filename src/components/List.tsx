@@ -44,7 +44,7 @@ const List = ({ stories, setStories, lastHitElement }: any) => {
   const navigate = useNavigate();
 
   function handleTitleClick(itemID: number) {
-    stories?.map((story: StoryType) => {
+    return stories?.map((story: StoryType) => {
       if (story.objectID === itemID)
         return navigate("/rawContent", { state: { story } });
     });
