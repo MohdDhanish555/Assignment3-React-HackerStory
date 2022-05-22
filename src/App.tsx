@@ -1,25 +1,55 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import SearchAppBar from "./components/SearchAppBar";
+import { createContext, useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import VariantOne from "./pages/VariantOne";
+import VariantTwo from "./pages/VariantTwo";
+import Home from "./pages/Home";
+import RawContent from "./pages/RawContent";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+
+export const API = "https://hn.algolia.com/api/v1/search?";
+export const AppContext: any = createContext([]);
+
+declare module "@mui/material/styles" {
+  interface Palette {
+    tertiary: Palette["primary"];
+  }
+  interface PaletteOptions {
+    tertiary: PaletteOptions["primary"];
+  }
+}
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#9ACD32",
+    },
+    secondary: {
+      main: "#262626",
+    },
+    tertiary: {
+      main: "#00e6e6",
+    },
+  },
+});
 
 function App() {
+  const [queryText, setQueryText] = useState("");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppContext.Provider value={[queryText, setQueryText]}>
+      <ThemeProvider theme={theme}>
+        <BrowserRouter>
+        <SearchAppBar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/variantOne" element={<VariantOne />} />
+          <Route path="/variantTwo" element={<VariantTwo />} />
+          <Route path="/rawContent" element={<RawContent />} />
+        </Routes>
+        </BrowserRouter>
+      </ThemeProvider>
+    </AppContext.Provider>
   );
 }
 
