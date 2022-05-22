@@ -2,7 +2,7 @@ import { Box, CircularProgress, Pagination } from "@mui/material";
 import { useContext, useEffect, useState } from "react";
 import List from "../components/List";
 import axios from "axios";
-import { AppContext, API } from "../App";
+import { AppContext, API, StoryType } from "../App";
 import { useDebounce } from "../hooks/UseDebounce";
 
 let totalPageCount = 0;
@@ -11,7 +11,7 @@ const VariantOne = () => {
   const [page, setPage] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
-  const [stories, setStories] = useState([]);
+  const [stories, setStories] = useState<StoryType[]>([]);
   const [queryText] = useContext(AppContext);
 
   useEffect(() => {

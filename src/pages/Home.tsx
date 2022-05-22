@@ -3,7 +3,6 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import paginationGif from "../assets/images/pagination-3.gif";
 import scrollGif from "../assets/images/mouse-scroll.gif";
-import { useTheme } from "@mui/material";
 
 const Home = () => {
   const [open, setOpen] = useState(true);

@@ -9,6 +9,16 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 
 export const API = "https://hn.algolia.com/api/v1/search?";
 export const AppContext: any = createContext([]);
+export type StoryType = {
+  title: string;
+  url: string;
+  created_at: string;
+  author: string;
+  points: number;
+  num_comments: number;
+  objectID: number;
+};
+
 
 declare module "@mui/material/styles" {
   interface Palette {

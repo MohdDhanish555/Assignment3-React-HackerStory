@@ -1,14 +1,16 @@
 import { Box, CircularProgress } from "@mui/material";
 import axios from "axios";
 import { useCallback, useContext, useEffect, useRef, useState } from "react";
-import { API, AppContext } from "../App";
+import { API, AppContext, StoryType } from "../App";
 import List from "../components/List";
 import { useDebounce } from "../hooks/UseDebounce";
+
+
 
 const VariantTwo = () => {
   const [page, setPage] = useState(0);
   const [queryText] = useContext(AppContext);
-  const [stories, setStories] = useState<any>([]);
+  const [stories, setStories] = useState<StoryType[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
   const [hasMoreData, setHasMoreData] = useState(false);
@@ -39,7 +41,7 @@ const VariantTwo = () => {
       });
   }, [debouncedURL]);
 
-  const observer: any = useRef();
+  const observer : any = useRef();
   const lastHitElement = useCallback(
     (node: any) => {
       if (isLoading) return;

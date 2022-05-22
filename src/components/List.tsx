@@ -12,6 +12,7 @@ import { tableCellClasses } from "@mui/material/TableCell";
 import { useNavigate } from "react-router-dom";
 import { useTheme } from "@mui/material";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
+import { StoryType } from "../App";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -31,19 +32,21 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
+
+
 const List = ({ stories, setStories, lastHitElement }: any) => {
   const theme = useTheme();
 
   function handleDeleteClick(itemID: number) {
-    setStories(stories?.filter((story: any) => story.objectID !== itemID));
+    setStories(stories?.filter((story: StoryType) => story.objectID !== itemID));
   }
 
   const navigate = useNavigate();
 
   function handleTitleClick(itemID: number) {
-    stories?.map((story: any) => {
+    stories?.map((story: StoryType) => {
       if (story.objectID === itemID)
-        return navigate("/rawContent", { state : { story } });
+        return navigate("/rawContent", { state: { story } });
     });
   }
 
@@ -63,7 +66,7 @@ const List = ({ stories, setStories, lastHitElement }: any) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {stories?.map((item: any, index: number) => {
+          {stories?.map((item: StoryType, index: number) => {
             if (stories.length === index + 1) {
               return (
                 <StyledTableRow
