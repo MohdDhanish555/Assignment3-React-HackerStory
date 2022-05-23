@@ -34,7 +34,7 @@ const Home = () => {
             component="img"
             height="194"
             image={paginationGif}
-            alt="Paella dish"
+            alt="Variant 1"
           />
           <CardContent
             sx={{
@@ -62,7 +62,7 @@ const Home = () => {
             component="img"
             height="194"
             image={scrollGif}
-            alt="Paella dish"
+            alt="Variant 2"
           />
           <CardContent sx={{ display: "flex", justifyContent: "center" }}>
             <Button
